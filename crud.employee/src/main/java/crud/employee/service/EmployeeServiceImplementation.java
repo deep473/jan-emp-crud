@@ -16,4 +16,12 @@ public class EmployeeServiceImplementation
 		repo.save(emp);
 	}
 	
+	public void updateEmployee(Employee emp) {
+		repo.save(emp);
+	}
+	
+	public void deleteEmployee(Long id) {
+		repo.deleteById(id);
+	}
+	
 }

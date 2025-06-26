@@ -18,10 +18,27 @@ public class EmployeeController {
 	public void createNewEmployee(@ModelAttribute Employee emp) {
 		service.createNewEmployee(emp);
 	}
+	@PostMapping("/update")
+	public void updateEmployee(@ModelAttribute Employee emp) {
+		service.updateEmployee(emp);
+	}
+	@GetMapping("/delete")
+	public void deleteEmployee(Long id) {
+		service.deleteEmployee(id);
+	}
 	
+
 	@GetMapping("/createPage")
 	public String createPage() {
 		return "create";	//create.html
+	}
+	@GetMapping("/updatePage")
+	public String updatePage() {
+		return "update";	//update.html
+	}
+	@GetMapping("/deletePage")
+	public String deletePage() {
+		return "delete";	//delete.html
 	}
 	
 }
