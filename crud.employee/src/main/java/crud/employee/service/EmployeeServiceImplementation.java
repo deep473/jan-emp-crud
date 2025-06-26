@@ -16,6 +16,10 @@ public class EmployeeServiceImplementation
 		repo.save(emp);
 	}
 	
+	public Employee searchEmployee(Long id) {
+		return repo.findById(id).get();
+	}
+	
 	public void updateEmployee(Employee emp) {
 		repo.save(emp);
 	}

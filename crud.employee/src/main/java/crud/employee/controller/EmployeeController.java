@@ -26,11 +26,21 @@ public class EmployeeController {
 	public void deleteEmployee(Long id) {
 		service.deleteEmployee(id);
 	}
+	@GetMapping("/search")
+	public Employee searchEmployee(Long id) {
+		Employee emp = service.searchEmployee(id);
+		System.out.println(emp);
+		return emp;
+	}
 	
 
 	@GetMapping("/createPage")
 	public String createPage() {
 		return "create";	//create.html
+	}
+	@GetMapping("/searchPage")
+	public String searchPage() {
+		return "search";	//search.html
 	}
 	@GetMapping("/updatePage")
 	public String updatePage() {
