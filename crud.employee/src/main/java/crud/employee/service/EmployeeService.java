@@ -1,5 +1,7 @@
 package crud.employee.service;
 
+import java.util.List;
+
 import crud.employee.entity.Employee;
 
 public interface EmployeeService {
@@ -11,4 +13,6 @@ public interface EmployeeService {
 	void updateEmployee(Employee emp);
 	
 	void deleteEmployee(Long id);
+
+	List<Employee> getAllEmployees();
 }

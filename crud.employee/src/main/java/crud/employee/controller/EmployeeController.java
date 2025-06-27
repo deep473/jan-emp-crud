@@ -1,7 +1,10 @@
 package crud.employee.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import crud.employee.entity.Employee;
 import crud.employee.service.EmployeeService;
@@ -26,12 +29,23 @@ public class EmployeeController {
 	public void deleteEmployee(Long id) {
 		service.deleteEmployee(id);
 	}
+	//import org.springframework.ui.Model;
+
 	@GetMapping("/search")
-	public Employee searchEmployee(Long id) {
+	public String searchEmployee(Long id, Model model) {
 		Employee emp = service.searchEmployee(id);
-		System.out.println(emp);
-		return emp;
+		//System.out.println(emp);
+		model.addAttribute("empObj", emp);
+		return "searchResult";
 	}
+	
+	@GetMapping("/viewAll")
+	public String getAllEmployees(Model model) {
+		 List<Employee> empList = service.getAllEmployees();
+		 System.out.println(empList);
+		 model.addAttribute("empList",empList);
+		 return "viewAll";
+		}
 	
 
 	@GetMapping("/createPage")
